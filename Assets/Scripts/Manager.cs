@@ -8,8 +8,7 @@ public class Manager : MonoBehaviour {
     public GraphManager graphManager;
 
     public bool voxelSpaceCreated;
-
-    [ContextMenu("CreateVoxelSpace")]
+  
     public void CreateVoxelSpace()
     {
         if (voxelSpaceCreated == false)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Vertex : MonoBehaviour
 {
 
-    public enum TYPE { DINING, KITCHEN }
+    public enum TYPE { DINING, KITCHEN, BATHROOM, BEDROOM, LIVINGROOM }
 
     public TYPE roomType;
 
