@@ -25,6 +25,7 @@ public class VoxelSpaceManager : MonoBehaviour {
         voxel.gameObject.SetActive(true);
         voxel.transform.localScale = new Vector3(voxelSize, voxelSize, voxelSize);
 
+        //Set the size of the voxel space according to the dimensions of the generated lines
         CreateSpace();
     }
 
@@ -59,7 +60,7 @@ public class VoxelSpaceManager : MonoBehaviour {
             //Only for the ones that are room space find neighboors
             if (voxel.isRoomSpace == true)
             {
-                neighboors = voxel.GetNeighboors();
+                neighboors = voxel.GetNeighbours();
                 //And make them walls
                 foreach (Voxel neighboor in neighboors)
                 {

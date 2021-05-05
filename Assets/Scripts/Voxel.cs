@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Voxel : MonoBehaviour {
+    //Get the voxelgrid class from another project
+    //The
+
 
     public GameObject model;
     public GameObject wall;
 
-    public List<Voxel> neighboors = new List<Voxel>();
+    public List<Voxel> neighbours = new List<Voxel>();
 
     public bool isRoomSpace;
     public bool isWall;
 
     private void Awake()
     {
-        neighboors = new List<Voxel>();
+        neighbours = new List<Voxel>();
         wall.SetActive(false);
         isRoomSpace = false;
     }
@@ -40,19 +43,19 @@ public class Voxel : MonoBehaviour {
         wall.SetActive(true);
     }
 
-    public List<Voxel> GetNeighboors()
+    public List<Voxel> GetNeighbours()
     {
-        neighboors.AddRange(GetNeighboorFromDirection(transform.TransformDirection(Vector3.forward)));
-        neighboors.AddRange(GetNeighboorFromDirection(-transform.TransformDirection(Vector3.forward)));
-        neighboors.AddRange(GetNeighboorFromDirection(transform.TransformDirection(Vector3.right)));
-        neighboors.AddRange(GetNeighboorFromDirection(-transform.TransformDirection(Vector3.right)));
-        neighboors.AddRange(GetNeighboorFromDirection(transform.TransformDirection(Vector3.up)));
-        neighboors.AddRange(GetNeighboorFromDirection(-transform.TransformDirection(Vector3.up)));
+        neighbours.AddRange(GetNeighbourFromDirection(Vector3.forward));
+        neighbours.AddRange(GetNeighbourFromDirection(-Vector3.forward));
+        neighbours.AddRange(GetNeighbourFromDirection(Vector3.right));
+        neighbours.AddRange(GetNeighbourFromDirection(-Vector3.right));
+        neighbours.AddRange(GetNeighbourFromDirection(Vector3.up));
+        neighbours.AddRange(GetNeighbourFromDirection(-Vector3.up));
 
-        return neighboors;
+        return neighbours;
     }
 
-    private List<Voxel> GetNeighboorFromDirection(Vector3 direction)
+    private List<Voxel> GetNeighbourFromDirection(Vector3 direction)
     {
         RaycastHit hit;
         Voxel hitVoxelDepth1;
